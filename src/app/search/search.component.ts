@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Search } from '../customsearch.model';
+import { Search, Context } from '../customsearch.model';
 import { SearchService } from '../search.service';
 
 @Component({
@@ -9,17 +9,21 @@ import { SearchService } from '../search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+  @Input() engineId: string;
+  @Input() context: Context;
+
+
   query: string;
   searchResults?: Search; 
 
   constructor(private searchService: SearchService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public getResults(query: string, start: number = 0): void {
     this.query = query;
-    this.searchService.getResults(query, start).subscribe(
+    this.searchService.getResults(this.engineId, query, start=start).subscribe(
       (response) => {
         console.log(response);
         this.searchResults = response;

@@ -7,6 +7,14 @@ export class Search {
 
 export class Context {
   title: string;
+  // Facets appear in a nested array with top level repeating.
+  facets: Facet[][];
+}
+
+export class Facet {
+  anchor: string;
+  label: string;
+  label_with_op: string;
 }
 
 export class Result {
