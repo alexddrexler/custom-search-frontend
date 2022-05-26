@@ -1,0 +1,13 @@
+<div *ngIf="result">
+	<mat-card>
+		<mat-card-title-group>
+			<mat-card-title>
+				<a href={{result.link}} target="_blank">{{result.title}}</a>
+			</mat-card-title>
+			<mat-card-subtitle>{{result.displayLink}}</mat-card-subtitle>
+			<img *ngIf="result.pagemap.cse_image" mat-card-sm-image src={{result.pagemap.cse_image[0].src}}>
+		</mat-card-title-group>
+		<mat-card-content>{{result.snippet}}</mat-card-content>
+	</mat-card>
+	<br>
+</div>
