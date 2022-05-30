@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { SearchComponent } from './search/search.component';
 import { ResultCardComponent } from './result-card/result-card.component';
@@ -35,6 +36,7 @@ import { ResultCardComponent } from './result-card/result-card.component';
     MatButtonModule,
     MatListModule,
     MatCardModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   query: string;
   searchResults?: Search; 
+  selectedFacet?: string;
 
   constructor(private searchService: SearchService) { }
 
@@ -23,13 +24,19 @@ export class SearchComponent implements OnInit {
 
   public getResults(query: string, start: number = 0): void {
     this.query = query;
-    this.searchService.getResults(this.engineId, query, start=start).subscribe(
+    let fullQuery = this.query;
+    if (this.selectedFacet) {
+      console.log('FACET!')
+      fullQuery = fullQuery + ' ' + this.selectedFacet;
+    }
+    this.searchService.getResults(this.engineId, fullQuery, start=start).subscribe(
       (response) => {
         console.log(response);
         this.searchResults = response;
       },
       (error) => {
         console.error('Request failed with error!');
+        console.error(error);
       },
       () => {
         console.log('Request complete.');

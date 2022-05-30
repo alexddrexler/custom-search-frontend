@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "custom-search-frontend": {
+      "hosting": {
+        "frontend": [
+          "custom-search-frontend"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "custom-search-frontend"
+  }
+}

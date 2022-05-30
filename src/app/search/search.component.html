@@ -6,7 +6,15 @@
 	    <mat-icon>close</mat-icon>
 	  </button>
 	</mat-form-field>
-	<br>
+</div>
+<div>
+	<mat-radio-group [(ngModel)]="selectedFacet">
+		<mat-radio-button *ngFor="let facet of context.facets" [value]="facet[0].label_with_op">
+			{{facet[0].anchor}}
+		</mat-radio-button>
+	</mat-radio-group>
+</div>
+<div>
 	<button mat-raised-button (click)="getResults(query)" color="primary" [disabled]="!query">Search</button>
 </div>
 <br>

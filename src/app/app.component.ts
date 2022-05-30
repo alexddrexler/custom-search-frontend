@@ -42,6 +42,7 @@ export class AppComponent {
       },
       (error) => {
         console.error('Request failed with error!');
+        console.error(error);
       },
       () => {
         console.log('Request complete.');
