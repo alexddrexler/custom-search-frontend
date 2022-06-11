@@ -1,19 +1,6 @@
 
 <mat-toolbar color="primary">
-	<h1>{{searchEngineName}}</h1>
+	<h1>CuriosiPLE</h1>
 </mat-toolbar>
 
-<div *ngIf="!searchEngineContext">
-	<mat-form-field appearance="fill">
-	  <mat-label>Search Engine ID</mat-label>
-	  <input matInput type="text" [(ngModel)]="searchEngineId" (keydown.enter)="handleIdInput(searchEngineId)">
-	  <button *ngIf="searchEngineId" matSuffix mat-icon-button aria-label="Clear" (click)="searchEngineId=''">
-	    <mat-icon>close</mat-icon>
-	  </button>
-	</mat-form-field>
-	<br>
-	<button mat-raised-button (click)="handleIdInput(searchEngineId)" color="primary" [disabled]="!searchEngineId">Load Search Engine</button>
-</div>
-
-
-<app-search *ngIf="searchEngineContext" [engineId]="searchEngineId" [context]="searchEngineContext"></app-search>
+<app-search></app-search>

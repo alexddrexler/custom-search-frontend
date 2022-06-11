@@ -20,6 +20,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   getResults(engineId: string, query: string, start?: number): Observable<Search> {
+    console.log(query);
     let uri = this.baseUri + '&cx=' + encodeURIComponent(engineId) + '&q=' + encodeURIComponent(query);
     if (start) {
       uri = uri + '&start=' + start;

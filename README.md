@@ -1,4 +1,8 @@
-# Frontend
+# CuriosiPLE Google Custom Search Front End
+
+To see this site in action, visit https://custom-search-frontend.web.app/.
+
+# Auto-generated Details
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 

@@ -1,7 +1,7 @@
 <div>
 	<mat-form-field appearance="fill">
 	  <mat-label>Query</mat-label>
-	  <input matInput type="text" [(ngModel)]="query" (keydown.enter)="getResults(query)">
+	  <input matInput type="text" [(ngModel)]="query" (keydown.enter)="handleSearch()">
 	  <button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
 	    <mat-icon>close</mat-icon>
 	  </button>
@@ -9,13 +9,13 @@
 </div>
 <div>
 	<mat-radio-group [(ngModel)]="selectedFacet">
-		<mat-radio-button *ngFor="let facet of context.facets" [value]="facet[0].label_with_op">
-			{{facet[0].anchor}}
+		<mat-radio-button *ngFor="let facet of facets" [value]="facet">
+			{{facet.displayName}}
 		</mat-radio-button>
 	</mat-radio-group>
 </div>
 <div>
-	<button mat-raised-button (click)="getResults(query)" color="primary" [disabled]="!query">Search</button>
+	<button mat-raised-button (click)="handleSearch()" color="primary" [disabled]="!query">Search</button>
 </div>
 <br>
 <div *ngIf="searchResults">
@@ -41,14 +41,14 @@
 		<button 
 		  *ngIf="searchResults.queries.previousPage" 
 		  mat-stroked-button
-		  (click)="getResults(searchResults.queries.previousPage[0].searchTerms,searchResults.queries.previousPage[0].startIndex)">
+		  (click)="getResults(searchResults.queries.previousPage[0].startIndex)">
 			Previous
 		</button>
 
 		<button 
 		  *ngIf="searchResults.queries.nextPage"
 		  mat-stroked-button
-		  (click)="getResults(searchResults.queries.nextPage[0].searchTerms,searchResults.queries.nextPage[0].startIndex)">
+		  (click)="getResults(searchResults.queries.nextPage[0].startIndex)">
 			Next
 		</button>
 	</div>
